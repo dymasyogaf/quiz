@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz Hub</title>
+  <style>
+    :root {
+      --bg-1: #0d1b2a;
+      --bg-2: #1b263b;
+      --bg-3: #415a77;
+      --ink: #f8f4ec;
+      --muted: #c6d1d8;
+      --accent: #f0b429;
+      --accent-2: #5bc0be;
+      --card: rgba(15, 23, 34, 0.82);
+      --glass: rgba(255, 255, 255, 0.08);
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 600px at 15% 10%, #223c52 0%, transparent 60%),
+        radial-gradient(900px 700px at 85% 15%, #1e3a4c 0%, transparent 60%),
+        linear-gradient(160deg, var(--bg-1), var(--bg-2) 55%, var(--bg-3));
+      display: grid;
+      place-items: center;
+      padding: clamp(18px, 3vw, 32px);
+    }
+
+    .shell {
+      width: min(980px, 100%);
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+      border-radius: clamp(18px, 3vw, 28px);
+      box-shadow: var(--shadow);
+      padding: clamp(20px, 3.5vw, 36px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shell::before,
+    .shell::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      opacity: 0.25;
+      z-index: 0;
+    }
+
+    .shell::before {
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, var(--accent), transparent 70%);
+      top: -140px;
+      left: -120px;
+    }
+
+    .shell::after {
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, var(--accent-2), transparent 70%);
+      bottom: -200px;
+      right: -140px;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: clamp(20px, 3vw, 28px);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 3.2vw, 2.8rem);
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: clamp(0.95rem, 2.6vw, 1rem);
+      font-family: "Trebuchet MS", "Lucida Sans", "Lucida Grande", sans-serif;
+    }
+
+    .grid {
+      display: grid;
+      gap: clamp(14px, 3vw, 18px);
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: clamp(18px, 3vw, 22px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: grid;
+      gap: 12px;
+      min-height: 180px;
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-family: "Trebuchet MS", "Lucida Sans", "Lucida Grande", sans-serif;
+      line-height: 1.5;
+    }
+
+    .actions {
+      margin-top: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: clamp(10px, 2.4vw, 12px) clamp(16px, 3.2vw, 18px);
+      border-radius: 999px;
+      text-decoration: none;
+      font-family: "Trebuchet MS", "Lucida Sans", "Lucida Grande", sans-serif;
+      font-weight: 600;
+      color: #2b1b0c;
+      background: linear-gradient(130deg, var(--accent), #f08c2e);
+      box-shadow: 0 10px 20px rgba(245, 166, 35, 0.28);
+    }
+
+    .btn.ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: none;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-family: "Trebuchet MS", "Lucida Sans", "Lucida Grande", sans-serif;
+    }
+
+    @media (max-width: 720px) {
+      .card { min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="content">
+      <header>
+        <h1>Quiz Hub</h1>
+        <p>Pilih materi, lalu mulai main. Semua quiz ada dalam satu tempat.</p>
+      </header>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Basis Data</h2>
+          <p>40 soal pilihan ganda dengan alur game: jawab, lihat penjelasan, lanjut.</p>
+          <div class="actions">
+            <a class="btn" href="BasisData/index.html">Mulai Quiz</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Algoritma</h2>
+          <p>Siapkan materi dan soal untuk quiz Algoritma.</p>
+          <div class="actions">
+            <a class="btn ghost" href="Algoritma/index.html">Lihat Folder</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Kewirausahaan</h2>
+          <p>Siapkan materi dan soal untuk quiz Kewirausahaan.</p>
+          <div class="actions">
+            <a class="btn ghost" href="Kewirausahaan/index.html">Lihat Folder</a>
+          </div>
+        </article>
+      </section>
+
+      <footer>Tip: kamu bisa menambah quiz baru dengan menyalin struktur folder yang sama.</footer>
+    </div>
+  </main>
+</body>
+</html>

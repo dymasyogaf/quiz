@@ -1,0 +1,395 @@
+:root {
+            --bg-1: #0f1c2e;
+            --bg-2: #1b3a4b;
+            --ink: #f5f1e8;
+            --muted: #b6c2c9;
+            --accent: #f5a623;
+            --accent-2: #58c4dd;
+            --good: #4dd49a;
+            --bad: #ff6b6b;
+            --card: rgba(18, 28, 39, 0.85);
+            --glass: rgba(255, 255, 255, 0.06);
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            --radius: 18px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background: radial-gradient(1200px 600px at 20% 10%, #223c52 0%, transparent 60%),
+                radial-gradient(1000px 700px at 90% 20%, #163145 0%, transparent 60%),
+                linear-gradient(160deg, var(--bg-1), var(--bg-2));
+            display: grid;
+            place-items: center;
+            padding: clamp(12px, 2.2vw, 22px);
+            overflow-x: hidden;
+        }
+
+        .stage {
+            width: min(860px, 100%);
+            position: relative;
+            padding: clamp(16px, 2.6vw, 26px);
+            border-radius: clamp(16px, 2.4vw, 22px);
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .stage::before,
+        .stage::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.25;
+            z-index: 0;
+        }
+
+        .stage::before {
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(circle, var(--accent), transparent 70%);
+            top: -120px;
+            left: -120px;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        .stage::after {
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, var(--accent-2), transparent 70%);
+            bottom: -180px;
+            right: -140px;
+            animation: float 12s ease-in-out infinite reverse;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            gap: clamp(16px, 2.6vw, 22px);
+        }
+
+        header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-size: clamp(1.7rem, 2.4vw, 2.2rem);
+            letter-spacing: 0.5px;
+        }
+
+        .brand p {
+            margin: 6px 0 0;
+            color: var(--muted);
+            font-size: clamp(0.88rem, 1.8vw, 0.95rem);
+            font-family: "Trebuchet MS", "Lucida Sans", "Lucida Grande", sans-serif;
+        }
+
+        .stats {
+            text-align: right;
+            font-family: "Trebuchet MS", "Lucida Sans", "Lucida Grande", sans-serif;
+            color: var(--muted);
+        }
+
+        .stats strong {
+            display: block;
+            color: var(--ink);
+            font-size: clamp(0.95rem, 2vw, 1.05rem);
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: clamp(14px, 2.4vw, 22px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(6px);
+            animation: rise 0.6s ease;
+        }
+
+        .question {
+            font-size: clamp(1.05rem, 2.1vw, 1.35rem);
+            line-height: 1.5;
+            margin: 0 0 clamp(12px, 2vw, 16px);
+        }
+
+        .options {
+            display: grid;
+            gap: clamp(8px, 1.8vw, 12px);
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: clamp(10px, 2vw, 12px) clamp(12px, 2.4vw, 14px);
+            background: var(--glass);
+            color: var(--ink);
+            border: 1px solid transparent;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+            font-family: "Trebuchet MS", "Lucida Sans", "Lucida Grande", sans-serif;
+        }
+
+        .option:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .option.selected {
+            border-color: var(--accent);
+            background: rgba(245, 166, 35, 0.12);
+        }
+
+        .option.correct {
+            border-color: var(--good);
+            background: rgba(77, 212, 154, 0.15);
+        }
+
+        .option.wrong {
+            border-color: var(--bad);
+            background: rgba(255, 107, 107, 0.12);
+        }
+
+        .option span {
+            width: clamp(24px, 5.6vw, 28px);
+            height: clamp(24px, 5.6vw, 28px);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            font-weight: 700;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            margin-top: clamp(10px, 2.2vw, 14px);
+        }
+
+        button {
+            border: none;
+            border-radius: 999px;
+            padding: clamp(9px, 2.2vw, 11px) clamp(14px, 3vw, 18px);
+            font-size: clamp(0.85rem, 2.4vw, 0.98rem);
+            cursor: pointer;
+            font-family: "Trebuchet MS", "Lucida Sans", "Lucida Grande", sans-serif;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .primary {
+            background: linear-gradient(130deg, var(--accent), #f08c2e);
+            color: #2b1b0c;
+            box-shadow: 0 10px 20px rgba(245, 166, 35, 0.3);
+        }
+
+        .ghost {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--ink);
+        }
+
+        button:hover:not(:disabled) {
+            transform: translateY(-2px);
+        }
+
+        .explanation {
+            margin-top: clamp(10px, 2.2vw, 14px);
+            padding: clamp(12px, 2.4vw, 16px) clamp(14px, 2.6vw, 18px);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--muted);
+            font-family: "Trebuchet MS", "Lucida Sans", "Lucida Grande", sans-serif;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .progress {
+            height: 6px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.12);
+            overflow: hidden;
+            margin-top: clamp(10px, 2.2vw, 14px);
+        }
+
+        .bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-2), var(--accent));
+            border-radius: inherit;
+            transition: width 0.4s ease;
+        }
+
+        .indicator {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: clamp(10px, 2.2vw, 12px);
+        }
+
+        .indicator-item {
+            width: clamp(24px, 6vw, 30px);
+            height: clamp(24px, 6vw, 30px);
+            border-radius: 999px;
+            display: grid;
+            place-items: center;
+            font-size: clamp(0.68rem, 2.2vw, 0.8rem);
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--muted);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .indicator-item.current {
+            border-color: var(--accent);
+            color: var(--ink);
+        }
+
+        .indicator-item.correct {
+            background: rgba(77, 212, 154, 0.2);
+            border-color: var(--good);
+            color: var(--good);
+        }
+
+        .indicator-item.wrong {
+            background: rgba(255, 107, 107, 0.2);
+            border-color: var(--bad);
+            color: var(--bad);
+        }
+
+        .finish {
+            text-align: center;
+            display: none;
+        }
+
+        .summary {
+            display: grid;
+            gap: 12px;
+            margin: 20px 0;
+            color: var(--muted);
+            font-family: "Trebuchet MS", "Lucida Sans", "Lucida Grande", sans-serif;
+        }
+
+        .review {
+            text-align: left;
+            margin-top: 18px;
+            display: grid;
+            gap: 14px;
+        }
+
+        .review-item {
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .review-item h3 {
+            margin: 0 0 8px;
+            font-size: 1.05rem;
+        }
+
+        .review-item p {
+            margin: 6px 0;
+            color: var(--muted);
+            font-family: "Trebuchet MS", "Lucida Sans", "Lucida Grande", sans-serif;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            margin-left: 6px;
+        }
+
+        .tag.good {
+            background: rgba(77, 212, 154, 0.2);
+            color: var(--good);
+        }
+
+        .tag.bad {
+            background: rgba(255, 107, 107, 0.2);
+            color: var(--bad);
+        }
+
+        @keyframes rise {
+            from {
+                transform: translateY(18px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(10px, -12px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 720px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .stats {
+                text-align: left;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .indicator {
+                gap: 6px;
+            }
+
+            .option {
+                align-items: flex-start;
+            }
+        }
