@@ -134,6 +134,137 @@ const quizData = [
                 options: ["10 10", "5 5", "5 10", "10 5"],
                 answerIndex: 2,
                 explanation: "x di method adalah variabel lokal (5). this.x adalah instance variable (10)."
+            },
+            {
+                question: "Perbedaan utama while dan do..while adalah...",
+                options: ["while selalu berjalan minimal 1 kali", "do..while mengecek kondisi dulu sebelum menjalankan blok", "do..while selalu berjalan minimal 1 kali", "while tidak bisa memakai kondisi"],
+                answerIndex: 2,
+                explanation: "do..while menjalankan blok dulu sekali, baru cek kondisi. while cek kondisi dulu."
+            },
+            {
+                question: "Output kode berikut adalah...",
+                questionHtml: "Soal: Output kode berikut adalah...<div class='code-card'><div class='code-header'><span class='code-lang'>java</span><button type='button' class='copy-btn' data-code='int i = 1;\\nwhile (i <= 5) {\\n    System.out.print(i + \" \");\\n    i += 2;\\n}'>Copy code</button></div><pre class='code-block'>int i = 1;\nwhile (i <= 5) {\n    System.out.print(i + \" \");\n    i += 2;\n}</pre></div>",
+                options: ["1 2 3 4 5", "1 3 5", "2 4", "1 3 5 7"],
+                answerIndex: 1,
+                explanation: "i mulai 1, lalu naik 2: 1, 3, 5. Setelah itu i jadi 7, berhenti."
+            },
+            {
+                question: "Output kode berikut adalah...",
+                questionHtml: "Soal: Output kode berikut adalah...<div class='code-card'><div class='code-header'><span class='code-lang'>java</span><button type='button' class='copy-btn' data-code='for (int i = 3; i >= 1; i--) {\\n    System.out.print(i);\\n}'>Copy code</button></div><pre class='code-block'>for (int i = 3; i >= 1; i--) {\n    System.out.print(i);\n}</pre></div>",
+                options: ["123", "321", "111", "333"],
+                answerIndex: 1,
+                explanation: "i mulai 3 turun sampai 1: cetak 3 lalu 2 lalu 1."
+            },
+            {
+                question: "Pernyataan yang benar tentang switch adalah...",
+                options: ["switch hanya bisa untuk kondisi boolean", "switch cocok untuk banyak pilihan berdasarkan nilai tertentu", "switch tidak membutuhkan case", "switch lebih cocok dari if untuk semua kasus"],
+                answerIndex: 1,
+                explanation: "switch dipakai saat pilihan berdasarkan nilai (misal menu 1/2/3 atau huruf A/B)."
+            },
+            {
+                question: "Output kode berikut adalah...",
+                questionHtml: "Soal: Output kode berikut adalah...<div class='code-card'><div class='code-header'><span class='code-lang'>java</span><button type='button' class='copy-btn' data-code='int x = 2;\\nif (x > 3) System.out.print(\"A\");\\nelse if (x == 2) System.out.print(\"B\");\\nelse System.out.print(\"C\");'>Copy code</button></div><pre class='code-block'>int x = 2;\nif (x > 3) System.out.print(\"A\");\nelse if (x == 2) System.out.print(\"B\");\nelse System.out.print(\"C\");</pre></div>",
+                options: ["A", "B", "C", "Tidak ada output"],
+                answerIndex: 1,
+                explanation: "x > 3 salah, tapi x == 2 benar, jadi cetak \"B\"."
+            },
+            {
+                question: "Tentang array di Java, yang benar adalah...",
+                options: ["Indeks array dimulai dari 1", "Panjang array bisa berubah otomatis setelah dibuat", "Array adalah objek dan punya properti length", "Array tidak bisa digunakan di method"],
+                answerIndex: 2,
+                explanation: "Array di Java itu objek, indeks mulai dari 0, dan panjangnya tetap; jumlah elemen bisa dilihat dengan length."
+            },
+            {
+                question: "Output kode berikut adalah...",
+                questionHtml: "Soal: Output kode berikut adalah...<div class='code-card'><div class='code-header'><span class='code-lang'>java</span><button type='button' class='copy-btn' data-code='int[] a = {10, 20, 30};\\nSystem.out.println(a.length);'>Copy code</button></div><pre class='code-block'>int[] a = {10, 20, 30};\nSystem.out.println(a.length);</pre></div>",
+                options: ["2", "3", "10", "Error"],
+                answerIndex: 1,
+                explanation: "Isi array ada 3 elemen, jadi length = 3."
+            },
+            {
+                question: "Output kode berikut adalah...",
+                questionHtml: "Soal: Output kode berikut adalah...<div class='code-card'><div class='code-header'><span class='code-lang'>java</span></div><pre class='code-block'>int[] a = {1, 2, 3, 4};\nint sum = 0;\nfor (int i = 0; i < a.length; i++) sum += a[i];\nSystem.out.println(sum);</pre></div>",
+                options: ["4", "6", "10", "12"],
+                answerIndex: 2,
+                explanation: "1+2+3+4 = 10."
+            },
+            {
+                question: "Output kode berikut adalah...",
+                questionHtml: "Soal: Output kode berikut adalah...<div class='code-card'><div class='code-header'><span class='code-lang'>java</span></div><pre class='code-block'>int[] a = {5, 7, 9};\nint x = a[1];\nSystem.out.println(x);</pre></div>",
+                options: ["5", "7", "9", "Error"],
+                answerIndex: 1,
+                explanation: "Indeks mulai 0, jadi a[1] adalah elemen kedua, yaitu 7."
+            },
+            {
+                question: "Pernyataan yang benar tentang method adalah...",
+                options: ["Method void tidak boleh punya parameter", "Method yang mengembalikan nilai harus memakai return", "Overloading berarti nama method harus berbeda semua", "Method hanya boleh dipanggil sekali"],
+                answerIndex: 1,
+                explanation: "Kalau method punya tipe return (misal int), harus mengembalikan nilai dengan return. Overloading justru nama boleh sama, parameternya yang beda."
+            },
+            {
+                question: "Pernyataan yang paling tepat tentang exception adalah...",
+                options: ["Error yang selalu terjadi saat kompilasi", "Kejadian yang membuat program berjalan tidak normal saat runtime", "Kesalahan hasil karena logika salah (tanpa error)", "Pesan komentar di dalam program"],
+                answerIndex: 1,
+                explanation: "Exception biasanya muncul saat program dijalankan (runtime) dan bisa membuat program crash jika tidak ditangani."
+            },
+            {
+                question: "Blok yang pasti dijalankan baik terjadi exception maupun tidak adalah...",
+                options: ["try", "catch", "finally", "throw"],
+                answerIndex: 2,
+                explanation: "finally selalu dieksekusi (biasanya untuk \"bersih-bersih\" resource)."
+            },
+            {
+                question: "Output kode berikut adalah...",
+                questionHtml: "Soal: Output yang paling tepat dari kode berikut adalah...<div class='code-card'><div class='code-header'><span class='code-lang'>java</span><button type='button' class='copy-btn' data-code='try {\\n    int x = 10 / 0;\\n    System.out.print(\"A\");\\n} catch (ArithmeticException e) {\\n    System.out.print(\"B\");\\n} finally {\\n    System.out.print(\"C\");\\n}'>Copy code</button></div><pre class='code-block'>try {\n    int x = 10 / 0;\n    System.out.print(\"A\");\n} catch (ArithmeticException e) {\n    System.out.print(\"B\");\n} finally {\n    System.out.print(\"C\");\n}</pre></div>",
+                options: ["A", "BC", "ABC", "AC"],
+                answerIndex: 1,
+                explanation: "10/0 memicu ArithmeticException -> masuk catch cetak B, lalu finally cetak C."
+            },
+            {
+                question: "Pernyataan yang benar tentang throw adalah...",
+                options: ["Untuk menutup program tanpa error", "Untuk membuat variabel menjadi null", "Untuk melempar exception secara manual", "Untuk menangkap exception tertentu"],
+                answerIndex: 2,
+                explanation: "throw dipakai saat kita ingin melempar exception sendiri (misal validasi input)."
+            },
+            {
+                question: "Manakah yang termasuk logic error?",
+                options: ["Lupa titik koma sehingga tidak bisa compile", "Program crash karena ArrayIndexOutOfBoundsException", "Program berjalan, tapi output salah karena rumus salah", "Error karena file tidak ditemukan"],
+                answerIndex: 2,
+                explanation: "Logic error: program tidak crash, tapi hasilnya keliru."
+            },
+            {
+                question: "Output kode berikut adalah...",
+                questionHtml: "Soal: Output dari kode berikut adalah...<div class='code-card'><div class='code-header'><span class='code-lang'>java</span></div><pre class='code-block'>String s = \"Algoritma\";\nSystem.out.println(s.length());</pre></div>",
+                options: ["8", "9", "10", "Error"],
+                answerIndex: 1,
+                explanation: "\"Algoritma\" terdiri dari 9 karakter."
+            },
+            {
+                question: "Output kode berikut adalah...",
+                questionHtml: "Soal: Output dari kode berikut adalah...<div class='code-card'><div class='code-header'><span class='code-lang'>java</span></div><pre class='code-block'>String s = \"Java\";\nSystem.out.println(s.charAt(2));</pre></div>",
+                options: ["J", "a", "v", "Error"],
+                answerIndex: 2,
+                explanation: "Index dimulai dari 0: J(0), a(1), v(2), a(3)."
+            },
+            {
+                question: "Mengapa StringBuffer sering dipakai untuk manipulasi teks berulang?",
+                options: ["Karena StringBuffer tidak punya method append", "Karena String tidak bisa menyimpan karakter", "Karena StringBuffer bisa diubah (mutable) dan efisien untuk edit teks", "Karena StringBuffer hanya bisa untuk angka"],
+                answerIndex: 2,
+                explanation: "StringBuffer bisa ditambah/hapus/sisip tanpa membuat banyak objek baru."
+            },
+            {
+                question: "Output kode berikut adalah...",
+                questionHtml: "Soal: Output kode berikut adalah...<div class='code-card'><div class='code-header'><span class='code-lang'>java</span></div><pre class='code-block'>StringBuffer sb = new StringBuffer(\"UT\");\nsb.append(\" Jogja\");\nSystem.out.println(sb);</pre></div>",
+                options: ["UTJogja", "UT Jogja", "UT  Jogja", "Error"],
+                answerIndex: 1,
+                explanation: "append(\" Jogja\") menambah teks termasuk spasi di depan, hasilnya \"UT Jogja\"."
+            },
+            {
+                question: "Output kode berikut adalah...",
+                questionHtml: "Soal: Output kode berikut adalah...<div class='code-card'><div class='code-header'><span class='code-lang'>java</span></div><pre class='code-block'>System.out.println(Math.max(7, 12));</pre></div>",
+                options: ["7", "12", "19", "Error"],
+                answerIndex: 1,
+                explanation: "Math.max(a,b) mengembalikan nilai terbesar, yaitu 12."
             }
         ];
 
